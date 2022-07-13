@@ -225,7 +225,7 @@ cpuwidget:set_color{ type = "linear", from = { 0, 0 }, to = { 50, 0 },
 vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 2)
 
 cputemp = wibox.widget.textbox()
-vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C", 2, {"acpitz"})
+vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {"acpitz"})
 
 batwidget = wibox.widget.progressbar()
 
