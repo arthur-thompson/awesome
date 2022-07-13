@@ -9,3 +9,4 @@ picom
 rxvt-unicode
 network-manager-applet
 volumeicon
+feh
