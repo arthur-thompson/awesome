@@ -1,10 +1,10 @@
-# awesomewm
+# awesome
 
 requires (arch):
 
 awesome 
 vicious 
-awesome-freedesktop-git
+awesome-freedesktop-git (aur)
 picom
 rxvt-unicode
 network-manager-applet
