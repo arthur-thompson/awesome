@@ -10,4 +10,4 @@ network-manager-applet
 volumeicon
 feh
 
-terminal is set to rxvt-unicode
+terminal is set to rxvt-unicode (urxvt)
