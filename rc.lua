@@ -183,7 +183,7 @@ awful.screen.connect_for_each_screen(function(s)
     --set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -227,25 +227,6 @@ vicious.register(cpuwidget, vicious.widgets.cpu, "$1", 2)
 cputemp = wibox.widget.textbox()
 vicious.register(cputemp, vicious.widgets.hwmontemp, " $1°C ", 2, {"acpitz"})
 
-batwidget = wibox.widget.progressbar()
-
--- Create wibox with batwidget
-batbox = wibox.layout.margin(
-    wibox.widget{ { max_value = 1, widget = batwidget,
-                    border_width = 0.5, border_color = "#000000",
-                    color = { type = "linear",
-                              from = { 0, 0 },
-                              to = { 0, 30 },
-                              stops = { { 0, "#AECF96" },
-                                        { 1, "#FF5656" } } } },
-                  forced_height = 10, forced_width = 8,
-                  direction = 'east', color = beautiful.fg_widget,
-                  layout = wibox.container.rotate },
-    1, 1, 3, 3)
-
--- Register battery widget
-vicious.register(batwidget, vicious.widgets.bat, "$2", 61, "BAT0")
-
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "bottom", screen = s })
 
@@ -262,10 +243,10 @@ vicious.register(batwidget, vicious.widgets.bat, "$2", 61, "BAT0")
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             --mykeyboardlayout,
-	    memwidget,
-	    cpuwidget,
-	    cputemp,
-            --batwidget,
+	        memwidget,
+	        cpuwidget,
+	        cputemp,
+            require("battery-widget") {},
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox,
